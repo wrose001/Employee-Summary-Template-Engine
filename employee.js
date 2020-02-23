@@ -17,6 +17,10 @@ class Employee {
         console.log(this.email);
     }
 
+    getRole(){
+        return "Employee";
+    }
+
 }
 
 module.exports = Employee;
