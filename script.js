@@ -78,3 +78,12 @@ const questions = [
         message: "What is your engineer's GitHub username?"
     }
 ];
+
+const list = [
+    {
+        type: "list",
+        name: "teamMember_type",
+        choices: ["Manager", "Engineer", "Intern"],
+        message: "What type of team member woud you like to add?"
+    }
+];
