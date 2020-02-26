@@ -1,8 +1,15 @@
+const Manager = require("./lib/manager.js");
+
+const Engineer = require("./lib/engineer.js");
+
+const Intern = require("./lib/intern.js");
+
 const inquirer = require("inquirer");
 
-const jest = require("jest");
+// const jest = require("jest");
 
 const fs = require("fs");
+
 
 const managerQuestions = [
 
@@ -80,7 +87,7 @@ const list = [
     {
         type: "list",
         name: "teamMember_type",
-        choices: ["Manager", "Engineer", "Intern", "I don't want to add any more team members"],
+        choices: ["Engineer", "Intern", "I don't want to add any more team members"],
         message: "What type of team member woud you like to add?"
     }
 ];
@@ -94,10 +101,18 @@ function writeToFile(fileName, data) {
     });
 }
 
+let managerArr = "";
+let engineerArr = [];
+let internArr = [];
+
 function init() {
 
     inquirer.prompt(managerQuestions).then(function(answers){
-//         console.log(answers);
+        managerArr = new Manager(answers.managers_name, answers.managers_id, answers.managers_email, answers.managers_officeNumber); 
+        console.log(answers);
+        console.log(managerArr);  
+        promptNext();      
+        //console.log(answers);
 //         const user = answers;
 //         axios.get(`https://api.github.com/users/${user.github_username}`).then(resp => {
 //     user.avatar_url = resp.data.avatar_url;
@@ -108,30 +123,64 @@ function init() {
         
     });
 
+    // inquirer.prompt(engineerQuestions).then(function(answers){
+        //         console.log(answers);
+        //         const user = answers;
+        //         axios.get(`https://api.github.com/users/${user.github_username}`).then(resp => {
+        //     user.avatar_url = resp.data.avatar_url;
+        //     writeToFile("output/README.md", user);
+        
+        // })
+                // const { github_username, } = answers;
+                
+    // });
+
+    // inquirer.prompt(internQuestions).then(function(answers){
+        //         console.log(answers);
+        //         const user = answers;
+        //         axios.get(`https://api.github.com/users/${user.github_username}`).then(resp => {
+        //     user.avatar_url = resp.data.avatar_url;
+        //     writeToFile("output/README.md", user);
+        
+        // })
+                // const { github_username, } = answers;
+                
+    // });
+
+}
+
+function promptNext() {
+    inquirer.prompt(list).then(function(data){
+        switch (data.teamMember_type){
+            case "Engineer": 
+                promptEngineer();
+                break;
+            case "Intern":
+                promptIntern();
+                break;
+            default: createHtml();    
+        }
+    })
+} 
+
+function promptEngineer() {
     inquirer.prompt(engineerQuestions).then(function(answers){
-        //         console.log(answers);
-        //         const user = answers;
-        //         axios.get(`https://api.github.com/users/${user.github_username}`).then(resp => {
-        //     user.avatar_url = resp.data.avatar_url;
-        //     writeToFile("output/README.md", user);
-        
-        // })
-                // const { github_username, } = answers;
-                
-    });
+        engineerArr.push(new Engineer(answers.engineers_name, answers.engineers_id, answers.engineers_email, answers.engineers_gitHub));
+        promptNext();
+    })
+}
 
+function promptIntern() {
     inquirer.prompt(internQuestions).then(function(answers){
-        //         console.log(answers);
-        //         const user = answers;
-        //         axios.get(`https://api.github.com/users/${user.github_username}`).then(resp => {
-        //     user.avatar_url = resp.data.avatar_url;
-        //     writeToFile("output/README.md", user);
-        
-        // })
-                // const { github_username, } = answers;
-                
-    });
+        internArr.push(new Intern(answers.interns_name, answers.interns_id, answers.interns_email, answers.interns_school));
+        promptNext();
+    })
+}
 
+function createHtml() {
+    console.log(managerArr);
+    console.log(engineerArr);
+    console.log(internArr);
 }
 
 init();
