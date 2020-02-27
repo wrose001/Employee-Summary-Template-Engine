@@ -99,14 +99,21 @@ const list = [
     }
 ];
 
-function writeToFile(fileName, data) {
-    let html = `#`
+// function writeToFile(fileName, data) {
+//     let html = `#`
 
-    fs.writeFile(fileName, html, function(err){
-        if(err) throw err;
-        console.log('SOMETHING');
-    });
-}
+//     fs.writeFile(fileName, html, function(err){
+//         if(err) throw err;
+//         console.log('SOMETHING');
+//     });
+// }
+
+const mainHTML = fs.readFileSync('./templates/main.html', 'utf8', (err, data) => {
+    if (err) {
+      throw err;
+    }
+    return data;
+  });
 
 let managerArr = "";
 let engineerArr = [];
