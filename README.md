@@ -19,8 +19,7 @@ This command line application prompts users for input related to their team memb
 [https://wrose001.github.io/project1/](https://wrose001.github.io/project1/)
 
 ## Video
-
-
+![Team Gif](/team.gif)
 
 ## Built With
 
