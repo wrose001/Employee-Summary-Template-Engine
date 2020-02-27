@@ -13,11 +13,6 @@ This command line application prompts users for input related to their team memb
 * package.json and lackage-lock.json
 
 
-
-## Deployment
-
-[https://wrose001.github.io/project1/](https://wrose001.github.io/project1/)
-
 ## Video
 ![Team Gif](/team.gif)
 
