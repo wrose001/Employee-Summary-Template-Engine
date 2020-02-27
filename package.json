@@ -1,25 +1,23 @@
 {
-  "name": "employee-summary-template-engine",
-  "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "dependencies": {
-    "inquirer": "^7.0.4",
-    "jest": "^25.1.0",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {},
+  "name": "myteam",
+  "version": "1.0.1",
+  "description": "Desaign Team Structure",
+  "main": "app.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wrose001/Employee-Summary-Template-Engine.git"
+    "url": "git+https://github.com/kratuvwxyz/myTeam.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kratu Desai",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wrose001/Employee-Summary-Template-Engine/issues"
+    "url": "https://github.com/kratuvwxyz/myTeam/issues"
   },
-  "homepage": "https://github.com/wrose001/Employee-Summary-Template-Engine#readme"
+  "homepage": "https://github.com/kratuvwxyz/myTeam#readme",
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "jest": "^25.1.0"
+  }
 }
